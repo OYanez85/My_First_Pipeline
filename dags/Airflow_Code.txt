@@ -1,0 +1,67 @@
+Here are some of the most common Airflow commands you might use via the command line (cmd):
+
+1. Start the Airflow Web Server
+To start the Airflow web server:
+
+airflow webserver --port 8080
+
+2. Start the Airflow Scheduler
+To start the Airflow scheduler:
+
+airflow scheduler
+
+3. List All DAGs
+To list all available DAGs:
+
+airflow dags list
+
+4. Trigger a DAG
+To manually trigger a specific DAG:
+
+airflow dags trigger <dag_id>
+Replace <dag_id> with the actual ID of your DAG.
+
+5. View the Status of a DAG
+To view the status of a specific DAG:
+
+airflow dags state <dag_id> <execution_date>
+Replace <dag_id> and <execution_date> with the actual ID of your DAG and the execution date.
+
+6. List Tasks for a DAG
+To list all tasks in a specific DAG:
+
+airflow tasks list <dag_id>
+
+7. Run a Task
+To run a specific task in a DAG:
+
+airflow tasks run <dag_id> <task_id> <execution_date>
+Replace <dag_id>, <task_id>, and <execution_date> with the actual values.
+
+8. Clear Task Instances
+To clear the state of task instances:
+
+airflow tasks clear <dag_id> --upstream --downstream --start-date <start_date> --end-date <end_date>
+This command will clear the state for the specified date range.
+
+9. View Logs for a Task Instance
+To view logs for a specific task instance:
+
+airflow tasks logs <dag_id> <task_id> <execution_date>
+
+10. Initialize the Database
+To initialize the Airflow metadata database:
+
+airflow db init
+
+11. Upgrade the Database
+To upgrade the database schema:
+
+airflow db upgrade
+
+12. Access the Command Line Interface (CLI)
+To access the Airflow command-line interface:
+
+airflow
+
+These commands cover a wide range of functionality for managing and monitoring your Airflow environment. Let me know if you need further clarification on any of these commands!
