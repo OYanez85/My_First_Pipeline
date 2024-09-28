@@ -1,0 +1,67 @@
+DBT_DB.DBT_SCHEMA.FCT_ORDERSDBT_DB.DBT_SCHEMA.FCT_ORDERSuse role accountadmin;
+
+create warehouse dbt_wh with warehouse_size='x-small';
+create database if not exists dbt_db;
+create role if not exists dbt_role;
+
+create warehouse dbt_wh with warehouse_size='x-small';
+
+show warehouses;
+
+grant usage, operate on warehouse dbt_wh to role dbt_role;
+
+show grants on warehouse dbt_wh;
+
+grant usage on warehouse dbt_wh to role dbt_role;
+
+grant role dbt_role to user oyanez85;
+
+grant all on database dbt_db to role dbt_role;
+
+create database if not exists dbt_db;
+
+use role accountadmin;
+
+grant all on database dbt_db to role dbt_role;
+
+use role dbt_role;
+
+create schema dbt_db.dbt_schema;
+
+use role accountadmin;
+
+drop warehouse if exists dbt_wh;
+drop database if exists dbt_db;
+drop role if exists dbt_role;
+
+-- Check if the database exists
+SHOW DATABASES LIKE 'dbt_db';
+
+-- Check if the role exists
+SHOW ROLES LIKE 'dbt_role';
+
+-- Check if the warehouse exists
+SHOW WAREHOUSES LIKE 'dbt_wh';
+
+-- Check grants on the warehouse
+SHOW GRANTS ON WAREHOUSE dbt_wh;
+
+-- Check grants for the role on the database
+SHOW GRANTS TO ROLE dbt_role;
+
+-- Check if the schema exists in the database
+SHOW SCHEMAS IN DATABASE dbt_db;
+
+ALTER WAREHOUSE dbt_wh RESUME;
+
+SHOW GRANTS ON DATABASE dbt_db;
+SHOW GRANTS ON SCHEMA dbt_schema;
+
+ALTER WAREHOUSE DBT_WH RESUME;
+
+SHOW GRANTS ON SCHEMA DBT_SCHEMA;
+
+GRANT USAGE ON SCHEMA DBT_DB.DBT_SCHEMA TO ROLE DBT_ROLE;
+GRANT CREATE TABLE, CREATE VIEW, CREATE STAGE ON SCHEMA DBT_DB.DBT_SCHEMA TO ROLE DBT_ROLE;
+GRANT ALL PRIVILEGES ON SCHEMA DBT_DB.DBT_SCHEMA TO ROLE DBT_ROLE;
+USE ROLE DBT_ROLE;
